@@ -56,9 +56,9 @@
      <div class="row">
      	<div class="col-6">
      		<br><br>
-	<h1>How do local budgets reflect public priorities in Minnesota?</h1>
+     		<h1>How do local budgets reflect public priorities in Minnesota?</h1>
         <h3>Visualizing local government spending on criminal justice in the state where George Floyd was murdered</h3>
-		<hr>
+        <hr>
      	</div>
      </div>
      <div class="row">
@@ -83,7 +83,7 @@
      	<br><br>
      	<p>George Floyd's murder at the hands of the Minneapolis Police Department on May 25, 2020 ignited the largest mass protests in U.S. history - and a national public conversation about policing, public safety, and racial justice.</p>
      	<br><br>
-     	<p>At their core, protests against police brutality and an unjust criminal justice system raise a profound question: how should public dollars in America be spent?</p>
+     	<p>Protests against police brutality and an unjust criminal justice system call attention to the many ways that public funds, and public institutions, inflict harm on people in systemic, racialized patterns. This raises a profound question: how should public dollars in a just society be spent? </p>
      	<br><br>
      	<p id="text3">This project seeks to explore this question. </p>
      	<br><br>
@@ -93,6 +93,8 @@
      	<br><br>
      	<p>Pairing budget data with demographic data from the U.S. Census and American Community Survey, we hope to understand how spending varies by city population and by the racial composition of their residents. Does a more populous city with a higher share of Black and brown residents spend more on police and corrections spending than a small, more monolithically white suburb? </p>
      	<br><br>
+      <p>As James Baldwin reminds us, nothing can be changed until it is faced. Understanding existing patterns of investment our inequitable society is a crucial first step towards changing them.</p>
+      <br><br>
      	</div>
      	<div class="col-8">
      		<div id="secondvisualdiv">
@@ -100,6 +102,7 @@
      	</div>
      </div>
   </main><!-- /.container -->
+  
 </body>
 
 <script type="text/javascript">
@@ -166,7 +169,7 @@ var svg = d3.select("div#secondvisualdiv")
 						.attr("viewBox", "0 0 1200 800")
   						.attr("preserveAspectRatio", "xMinYMid")
 
-var rectangles = [[200, 00, 800, 750, "gray"],[260, 50, 200, 80, "lightgray"],[260, 150, 200, 80, "lightgray"],[260, 250, 200, 80, "lightgray"],[260, 350, 200, 80, "lightgray"],[260, 450, 200, 80, "lightgray"],[260, 550, 200, 80, "lightgray"],[260, 650, 200, 80, "lightgray"],[500, 50, 430, 350, "lightgray"],[500, 450, 430, 280, "lightgray"]];
+var rectangles = [[200, 00, 800, 750, "blue"],[260, 50, 200, 80, "lightblue"],[260, 150, 200, 80, "lightgray"],[260, 250, 200, 80, "lightgray"],[260, 350, 200, 80, "lightgray"],[260, 450, 200, 80, "lightgray"],[260, 550, 200, 80, "lightgray"],[260, 650, 200, 80, "lightgray"],[500, 50, 430, 350, "lightgray"],[500, 450, 430, 280, "lightgray"]];
 
 			svg.selectAll("rect")
 			   .data(rectangles)
@@ -283,4 +286,3 @@ var rectangles = [[200, 00, 800, 750, "gray"],[260, 50, 200, 80, "lightgray"],[2
 </script>
 </body>
 </html>
-
