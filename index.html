@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Scrollytelling Demo</title>
+   	<script src="https://d3js.org/d3.v4.min.js"></script>
+   	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,500" rel="stylesheet">
+   	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.min.js"></script>
+    <style>
+
+		p {
+			font-family: 'Open Sans', sans-serif;
+			color:#353536;
+			font-weight:300;
+		}
+
+		svg {
+			width:100%;
+			height:600px;
+			padding-left:5%;
+			padding-right:50px;		
+		}
+		
+		h1 {
+			font-size:60px;
+			font-weight:200;
+			line-height:1.3;
+		}
+		
+		#firstvisualdiv, #secondvisualdiv {
+        position: -webkit-sticky;
+          position: sticky;
+          top: -1px;
+    	}
+    	
+   .text1opacity, .text2opacity, .text3opacity {
+        font-size:30px;
+        fill:blue;
+        opacity:0;
+        transition: opacity 0.8s;
+         -webkit-transition: opacity 0.8s;
+        }
+
+
+		.active {
+        	opacity:1;
+    	}
+
+
+
+	</style>
+</head>
+<body>
+  <main role="main" class="container" >
+     <div class="row">
+     	<div class="col-6">
+     		<br><br>
+     		<h1>Scrollytelling Demo</h1>
+     		<hr>
+     	</div>
+     </div>
+     <div class="row">
+     	<div class="col-4">
+     	<br><br>
+     	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed laoreet, nulla ut consectetur fermentum, risus nisi pretium justo, sed accumsan mi leo ac tortor. Cras risus mi, volutpat in commodo. </p>
+     	<br><br>
+     	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed laoreet, nulla ut consectetur fermentum, risus nisi pretium justo, sed accumsan mi leo ac tortor. Cras risus mi, volutpat in commodo. </p>
+     	<br><br>
+     	<p id="text1">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed laoreet, nulla ut consectetur fermentum, risus nisi pretium justo, sed accumsan mi leo ac tortor. Cras risus mi, volutpat in commodo. </p>
+     	<br><br>
+     	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed laoreet, nulla ut consectetur fermentum, risus nisi pretium justo, sed accumsan mi leo ac tortor. Cras risus mi, volutpat in commodo. </p>
+     	<br><br>
+     	<p id="text2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed laoreet, nulla ut consectetur fermentum, risus nisi pretium justo, sed accumsan mi leo ac tortor. Cras risus mi, volutpat in commodo. </p>
+     	<br><br>
+     	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed laoreet, nulla ut consectetur fermentum, risus nisi pretium justo, sed accumsan mi leo ac tortor. Cras risus mi, volutpat in commodo. </p>
+     	<br><br>
+     	</div>
+     	<div class="col-8">
+     		<div id="firstvisualdiv">
+     		</div>
+     	</div>
+     	<div class="col-4">
+     	<br><br>
+     	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed laoreet, nulla ut consectetur fermentum, risus nisi pretium justo, sed accumsan mi leo ac tortor. Cras risus mi, volutpat in commodo. </p>
+     	<br><br>
+     	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed laoreet, nulla ut consectetur fermentum, risus nisi pretium justo, sed accumsan mi leo ac tortor. Cras risus mi, volutpat in commodo. </p>
+     	<br><br>
+     	<p id="text3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed laoreet, nulla ut consectetur fermentum, risus nisi pretium justo, sed accumsan mi leo ac tortor. Cras risus mi, volutpat in commodo. </p>
+     	<br><br>
+     	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed laoreet, nulla ut consectetur fermentum, risus nisi pretium justo, sed accumsan mi leo ac tortor. Cras risus mi, volutpat in commodo. </p>
+     	<br><br>
+     	<p id="text4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed laoreet, nulla ut consectetur fermentum, risus nisi pretium justo, sed accumsan mi leo ac tortor. Cras risus mi, volutpat in commodo. </p>
+     	<br><br>
+     	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed laoreet, nulla ut consectetur fermentum, risus nisi pretium justo, sed accumsan mi leo ac tortor. Cras risus mi, volutpat in commodo. </p>
+     	<br><br>
+     	</div>
+     	<div class="col-8">
+     		<div id="secondvisualdiv">
+     		</div>
+     	</div>
+     </div>
+  </main><!-- /.container -->
+</body>
+
+<script type="text/javascript">
+
+var svg = d3.select("div#firstvisualdiv")
+						.append("svg")
+						.attr("viewBox", "0 0 1200 800")
+  						.attr("preserveAspectRatio", "xMinYMid")
+  		
+var rectangles = [[200, 0, 800, 600, "gray"],[260, 50, 200, 500, "lightgray"],[500, 50, 430, 500, "lightgray"]];
+			   			
+			svg.selectAll("rect")
+			   .data(rectangles)
+			   .enter()
+			   .append("rect")
+			   .attr("stroke", "black")
+			   .attr("stroke-width", 1)
+			   .attr("x", function(d) {
+			   		return d[0];})
+			   .attr("y", function(d) {
+			   		return d[1];})
+			   .attr("width", function(d) {
+			   		return d[2];})
+			   .attr("height", function(d) {
+			   		return d[3];})
+			   .attr("fill", function(d) {
+			   		if (d[4]== "gray")
+			   			return "gray";
+			   		else
+			   			return "#bdbdbd";})
+			
+		
+			    svg.append("text")
+    			.attr("x", 360)
+    			.attr("y", 150)
+    			.attr("text-anchor", "middle")
+    			.text("text column")
+    			.attr("class", "text1opacity")
+    			
+    			svg.append("text")
+    			.attr("x", 360)
+    			.attr("y", 200)
+    			.attr("text-anchor", "middle")
+    			.text("class='col-4'")
+    			.attr("class", "text1opacity")
+    			
+    			svg.append("text")
+    			.attr("x", 710)
+    			.attr("y", 150)
+    			.attr("text-anchor", "middle")
+    			.text("visuals column")
+    			.attr("class", "text2opacity")
+
+				svg.append("text")
+    			.attr("x", 710)
+    			.attr("y", 200)
+    			.attr("text-anchor", "middle")
+    			.text("class='col-8'")
+    			.attr("class", "text2opacity")
+
+
+var svg = d3.select("div#secondvisualdiv")
+						.append("svg")
+						.attr("viewBox", "0 0 1200 800")
+  						.attr("preserveAspectRatio", "xMinYMid")
+  		
+var rectangles = [[200, 00, 800, 750, "gray"],[260, 50, 200, 80, "lightgray"],[260, 150, 200, 80, "lightgray"],[260, 250, 200, 80, "lightgray"],[260, 350, 200, 80, "lightgray"],[260, 450, 200, 80, "lightgray"],[260, 550, 200, 80, "lightgray"],[260, 650, 200, 80, "lightgray"],[500, 50, 430, 350, "lightgray"],[500, 450, 430, 280, "lightgray"]];
+			   			
+			svg.selectAll("rect")
+			   .data(rectangles)
+			   .enter()
+			   .append("rect")
+			   .attr("stroke", "black")
+			   .attr("stroke-width", 1)
+			   .attr("x", function(d) {
+			   		return d[0];})
+			   .attr("y", function(d) {
+			   		return d[1];})
+			   .attr("width", function(d) {
+			   		return d[2];})
+			   .attr("height", function(d) {
+			   		return d[3];})
+			   .attr("fill", function(d) {
+			   		if (d[4]== "gray")
+			   			return "gray";
+			   		else
+			   			return "#bdbdbd";})
+				
+			svg.append("text")
+    			.attr("x", 350)
+    			.attr("y", 100)
+    			.attr("text-anchor", "middle")
+    			.text("ID='text1'")
+    			.attr("class", "text3opacity")
+    			
+    		svg.append("text")
+    			.attr("x", 350)
+    			.attr("y", 200)
+    			.attr("text-anchor", "middle")
+    			.text("ID='text2'")
+    			.attr("class", "text3opacity")
+    			
+    		svg.append("text")
+    			.attr("x", 350)
+    			.attr("y", 300)
+    			.attr("text-anchor", "middle")
+    			.text("ID='text3'")
+    			.attr("class", "text3opacity")
+    		
+    		svg.append("text")
+    			.attr("x", 350)
+    			.attr("y", 400)
+    			.attr("text-anchor", "middle")
+    			.text("ID='text4'")
+    			.attr("class", "text3opacity")
+    		
+    		svg.append("text")
+    			.attr("x", 350)
+    			.attr("y", 500)
+    			.attr("text-anchor", "middle")
+    			.text("ID='text5'")
+    			.attr("class", "text3opacity")
+    			
+    		svg.append("text")
+    			.attr("x", 350)
+    			.attr("y", 600)
+    			.attr("text-anchor", "middle")
+    			.text("ID='text6'")
+    			.attr("class", "text3opacity")
+
+    		svg.append("text")
+    			.attr("x", 350)
+    			.attr("y", 700)
+    			.attr("text-anchor", "middle")
+    			.text("ID='text7'")
+    			.attr("class", "text3opacity")
+    		
+    		svg.append("text")
+    			.attr("x", 700)
+    			.attr("y", 200)
+    			.attr("text-anchor", "middle")
+    			.text("ID='firstvisualdiv'")
+    			.attr("class", "text3opacity")
+
+    		svg.append("text")
+    			.attr("x", 700)
+    			.attr("y", 580)
+    			.attr("text-anchor", "middle")
+    			.text("ID='secondvisualdiv'")
+    			.attr("class", "text3opacity")
+    			
+    				
+    		svg.append("text")
+    			.attr("x", 700)
+    			.attr("y", 250)
+    			.attr("text-anchor", "middle")
+    			.text("position: sticky")
+    			.attr("class", "text3opacity")		
+    			
+    		svg.append("text")
+    			.attr("x", 700)
+    			.attr("y", 630)
+    			.attr("text-anchor", "middle")
+    			.text("position: sticky")
+    			.attr("class", "text3opacity")	
+    
+    var controller = new ScrollMagic.Controller();
+    
+    	new ScrollMagic.Scene({triggerElement: "#text1"})
+        	.setClassToggle(".text1opacity", "active") 
+        	.addTo(controller);
+        
+    	new ScrollMagic.Scene({triggerElement: "#text2"})
+        	.setClassToggle(".text2opacity", "active") 
+        	.addTo(controller);
+                        
+		new ScrollMagic.Scene({triggerElement: "#text3"})
+        	.setClassToggle(".text3opacity", "active") 
+        	.addTo(controller);
+								
+</script>
+</body>
+</html>
