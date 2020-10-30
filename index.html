@@ -3,286 +3,213 @@
 <head>
     <meta charset="UTF-8" />
     <title>How do local budgets reflect priorities in Minnesota?</title>
-   	<script src="https://d3js.org/d3.v4.min.js"></script>
-   	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,500" rel="stylesheet">
-   	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.min.js"></script>
-    <style>
 
-		p {
+    <!-- D3, directly loading minified version  -->
+   	<script src="https://d3js.org/d3.v4.min.js"></script>
+    <!-- Google Fonts API -->
+   	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,500" rel="stylesheet">
+    <!-- BootstrapCDN, is the cached version to add compiled CSS and JS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
+    <!-- ScrollMagic, javascript library for scroll interactions -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.min.js"></script>
+
+    <style>
+    /* Paragraph styling */
+    p {
 			font-family: 'Open Sans', sans-serif;
 			color:#353536;
-			font-weight:300;
-		}
-
+			font-weight:300}
+    /* Scalable Vector Graphics (SVG) styling */
 		svg {
-			width:100%;
-			height:600px;
+			width:auto;
+			height:auto;
 			padding-left:5%;
-			padding-right:50px;
-		}
-
+			padding-right:50px}
+    /* Heading styling */
 		h1 {
 			font-size:60px;
 			font-weight:200;
-			line-height:1.3;
-		}
+			line-height:1.3}
+    /* Visual styling */
+		#firstvisualdiv {
+      position: -webkit-sticky;
+      position: sticky;
+      top: -1px;
+      border-color: black;
+      background-color: lightgray;
+      padding: 20px;
+      transition: opacity 0.8s;
+     -webkit-transition: opacity 0.8s}
+    #secondvisualdiv {
+      position: -webkit-sticky;
+      position: sticky;
+      top: -1px;
+      border-color: black;
+      background-color: pink;
+      padding: 20px;
+      transition: opacity 0.8s;
+     -webkit-transition: opacity 0.8s}
+    #thirdvisualdiv {
+      position: -webkit-sticky;
+      position: sticky;
+      top: -1px;
+      border-color: black;
+      background-color: lightblue;
+      padding: 20px;
+      transition: opacity 0.8s;
+     -webkit-transition: opacity 0.8s}
 
-		#firstvisualdiv, #secondvisualdiv {
-        position: -webkit-sticky;
-          position: sticky;
-          top: -1px;
-    	}
+      .img{
+       max-width: 100%;
+       max-height: 100%;
+       position: relative;
+       opacity: 0;
+       transition: opacity 1.2s;
+       -webkit-transition: opacity 1.2s;
+      }
+
+      .html{
+       max-width: 100%;
+       max-height: 100%;
+       position: relative;
+       opacity: 0;
+       transition: opacity 1.2s;
+       -webkit-transition: opacity 1.2s;
+      }
 
    .text1opacity, .text2opacity, .text3opacity {
-        font-size:30px;
-        fill:blue;
-        opacity:0;
-        transition: opacity 0.8s;
-         -webkit-transition: opacity 0.8s;
-        }
-
+      font-size:20px;
+      fill:blue;
+      opacity:0;
+      transition: opacity 0.8s;
+       -webkit-transition: opacity 0.8s;
+      }
 
 		.active {
-        	opacity:1;
+    	opacity:1;
     	}
 
+    .deactive {
+      opacity:0;
+      }
 
-
-	</style>
+        </style>
 </head>
+
+
 <body>
   <main role="main" class="container" >
-     <div class="row">
-     	<div class="col-6">
-     		<br><br>
-     		<h1>How do local budgets reflect public priorities in Minnesota?</h1>
-        <h3>Visualizing local government spending on criminal justice in the state where George Floyd was murdered</h3>
-        <hr>
-     	</div>
-     </div>
-     <div class="row">
-     	<div class="col-4">
-     	<br><br>
-      <p id="text1">“Not everything that is faced can be changed, but nothing can be changed until it is faced.” - James Baldwin </p>
-      <br><br>
-     	<p id="text2">“If you grew up in a well-off, predominantly white suburb, how often did you interact with cops? Communities with lots of good jobs, strong schools, economies, and social safety nets are already, in some ways, living in a world without police.” - MPD150, Enough is Enough</p>
-     	<br><br>
-     	<p id="text3">“Don’t tell me what you value. Show me your budget and I will tell you what you value.” - Joe Biden </p>
-     	<br><br>
-     	<p id="text4">“We should redirect the billions that now go to the police departments towards providing health care, housing, education, and good jobs. If we did this, there would be less need for the police in the first place.” - Mariame Kaba </p>
-     	<br><br>
-     	<p id="text5">“For decades, local officials requested federal funding for job training, gun control and mental health programs. What did they get? Funding only for police and prosecutors.” - James Foreman, Jr., Locking Up Our Own </p>
-     	<br><br>
-     	</div>
-     	<div class="col-8">
-     		<div id="firstvisualdiv">
-     		</div>
-     	</div>
-     	<div class="col-4">
-     	<br><br>
-     	<p>George Floyd's murder at the hands of the Minneapolis Police Department on May 25, 2020 ignited the largest mass protests in U.S. history - and a national public conversation about policing, public safety, and racial justice.</p>
-     	<br><br>
-     	<p>Protests against police brutality and an unjust criminal justice system call attention to the many ways that public funds, and public institutions, inflict harm on people in systemic, racialized patterns. This raises a profound question: how should public dollars in a just society be spent? </p>
-     	<br><br>
-     	<p id="text3">This project seeks to explore this question. </p>
-     	<br><br>
-     	<p> Budgets are moral documents, reflective of the values and preferences of those who set them. We are visualizing the budgets of more than 750 cities and all 87 counties in Minnesota to understand how these values vary across the state</p>
-     	<br><br>
-     	<p id="text4">Inspired by the observations of police and prison abolitionists like Mariame Kaba, we compare local government spending on police and prisons with spending on parks, social services, economic development, housing, and health.</p>
-     	<br><br>
-     	<p>Pairing budget data with demographic data from the U.S. Census and American Community Survey, we hope to understand how spending varies by city population and by the racial composition of their residents. Does a more populous city with a higher share of Black and brown residents spend more on police and corrections spending than a small, more monolithically white suburb? </p>
-     	<br><br>
-      <p>As James Baldwin reminds us, nothing can be changed until it is faced. Understanding existing patterns of investment our inequitable society is a crucial first step towards changing them.</p>
-      <br><br>
-     	</div>
-     	<div class="col-8">
-     		<div id="secondvisualdiv">
-     		</div>
-     	</div>
-     </div>
-  </main><!-- /.container -->
-  
-</body>
 
-<script type="text/javascript">
+       <div class="row">
+         	<div class="col-6">
+           		<br><br>
+           		<h1 id="text00">How do local budgets reflect public priorities in Minnesota?</h1>
+              <h3 id="text0">Visualizing local government spending on criminal justice in the state where George Floyd was murdered</h3>
+              <hr>
+              <h5 id="text0">Authors: Nathan Arnosti, Laier-Rayshon Smith, & Madeline Wrable</h3>
+              <hr>
+          </div>
+       </div>
 
-var svg = d3.select("div#firstvisualdiv")
-						.append("svg")
-						.attr("viewBox", "0 0 1200 800")
-  						.attr("preserveAspectRatio", "xMinYMid")
+       <div class="row">
+       	 <div class="col-4">
+           	<br><br>
+            <p id="text1">“Not everything that is faced can be changed, but nothing can be changed until it is faced.” - James Baldwin </p>
+            <br><br>
+           	<p id="text2">“If you grew up in a well-off, predominantly white suburb, how often did you interact with cops? Communities with lots of good jobs, strong schools, economies, and social safety nets are already, in some ways, living in a world without police.” - MPD150, Enough is Enough</p>
+           	<br><br>
+           	<p id="text3">“Don’t tell me what you value. Show me your budget and I will tell you what you value.” - Joe Biden </p>
+           	<br><br>
+           	<p id="text4">“We should redirect the billions that now go to the police departments towards providing health care, housing, education, and good jobs. If we did this, there would be less need for the police in the first place.” - Mariame Kaba </p>
+           	<br><br>
+          </div>
 
-var rectangles = [[200, 0, 800, 600, "gray"],[260, 50, 200, 500, "lightgray"],[500, 50, 430, 500, "lightgray"]];
+          <div class="col-8">
+              <div id="firstvisualdiv">
+                <h5> Protesters and Police</h5>
+                <iframe width="700" height="500" src="Minneapolis_protests.jpg"></iframe>
+              </div>
+          </div>
 
-			svg.selectAll("rect")
-			   .data(rectangles)
-			   .enter()
-			   .append("rect")
-			   .attr("stroke", "black")
-			   .attr("stroke-width", 1)
-			   .attr("x", function(d) {
-			   		return d[0];})
-			   .attr("y", function(d) {
-			   		return d[1];})
-			   .attr("width", function(d) {
-			   		return d[2];})
-			   .attr("height", function(d) {
-			   		return d[3];})
-			   .attr("fill", function(d) {
-			   		if (d[4]== "gray")
-			   			return "gray";
-			   		else
-			   			return "#bdbdbd";})
+          <div class="col-4">
+              <br><br>
+              <p id="text5">“For decades, local officials requested federal funding for job training, gun control and mental health programs. What did they get? Funding only for police and prosecutors.” - James Foreman, Jr., Locking Up Our Own </p>
+              <br><br>
+              <p id="text6">George Floyd's murder at the hands of the Minneapolis Police Department on May 25, 2020 ignited the largest mass protests in U.S. history - and a national public conversation about policing, public safety, and racial justice.</p>
+              <br><br>
+              <p id="text7">Protests against police brutality and an unjust criminal justice system call attention to the many ways that public funds, and public institutions, inflict harm on people in systemic, racialized patterns. This raises a profound question: how should public dollars in a just society be spent? </p>
+              <br><br>
+              <p id="text8">This project seeks to explore this question. </p>
+              <br><br>
+         </div>
 
+         <div class="col-8">
+           <div id="secondvisualdiv">
+             <h5>Policing per-capita expenditures versus total per-capita expenditures in Minnesota cities</h5>
+             <iframe width="750" height ="400" src="plot.html" frameborder="0"></iframe>
+           </div>
+         </div>
 
-			    svg.append("text")
-    			.attr("x", 360)
-    			.attr("y", 150)
-    			.attr("text-anchor", "middle")
-    			.text("text column")
-    			.attr("class", "text1opacity")
+         <div class="col-4">
+                <p id="text9"> Budgets are moral documents, reflective of the values and preferences of those who set them. We are visualizing the budgets of more than 750 cities and all 87 counties in Minnesota to understand how these values vary across the state</p>
+                <br><br>
+                <p id="text10">Inspired by the observations of police and prison abolitionists like Mariame Kaba, we compare local government spending on police and prisons with spending on parks, social services, economic development, housing, and health.</p>
+                <br><br>
+                <p id="text11">Pairing budget data with demographic data from the U.S. Census and American Community Survey, we hope to understand how spending varies by city population and by the racial composition of their residents. Does a more populous city with a higher share of Black and brown residents spend more on police and corrections spending than a small, more monolithically white suburb? </p>
+                <br><br>
+                <p id="text12">As James Baldwin reminds us, nothing can be changed until it is faced. Understanding existing patterns of investment our inequitable society is a crucial first step towards changing them.</p>
+                <br><br>
+          </div>
 
-    			svg.append("text")
-    			.attr("x", 360)
-    			.attr("y", 200)
-    			.attr("text-anchor", "middle")
-    			.text("class='col-4'")
-    			.attr("class", "text1opacity")
+          <div class="col-8">
+              <div id="thirdvisualdiv">
+                 <h5>Minnesota congressional districts</h5>
+                 <iframe width="500" height ="500" src="my_map.html" frameborder="0"></iframe>
+              </div>
+          </div>
+      <!-- The div below encloses all of the quotes in the body of the html -->
+      </div>
+  </main>
 
-    			svg.append("text")
-    			.attr("x", 710)
-    			.attr("y", 150)
-    			.attr("text-anchor", "middle")
-    			.text("visuals column")
-    			.attr("class", "text2opacity")
+  <script type="text/javascript">
+      var controller = new ScrollMagic.Controller();
 
-				svg.append("text")
-    			.attr("x", 710)
-    			.attr("y", 200)
-    			.attr("text-anchor", "middle")
-    			.text("class='col-8'")
-    			.attr("class", "text2opacity")
+        new ScrollMagic.Scene({triggerElement: "#text4"})
+            .setClassToggle("#firstvisualdiv", "deactive")
+            .addTo(controller);
 
+        new ScrollMagic.Scene({triggerElement: "#text5"})
+            .setClassToggle("#secondvisualdiv", "active")
+            .addTo(controller);
 
-var svg = d3.select("div#secondvisualdiv")
-						.append("svg")
-						.attr("viewBox", "0 0 1200 800")
-  						.attr("preserveAspectRatio", "xMinYMid")
+        new ScrollMagic.Scene({triggerElement: "#text7"})
+            .setClassToggle("#secondvisualdiv", "deactive")
+            .addTo(controller);
 
-var rectangles = [[200, 00, 800, 750, "blue"],[260, 50, 200, 80, "lightblue"],[260, 150, 200, 80, "lightgray"],[260, 250, 200, 80, "lightgray"],[260, 350, 200, 80, "lightgray"],[260, 450, 200, 80, "lightgray"],[260, 550, 200, 80, "lightgray"],[260, 650, 200, 80, "lightgray"],[500, 50, 430, 350, "lightgray"],[500, 450, 430, 280, "lightgray"]];
+        new ScrollMagic.Scene({triggerElement: "#text7"})
+            .setClassToggle("#thirdvisualdiv", "active")
+            .addTo(controller);
 
-			svg.selectAll("rect")
-			   .data(rectangles)
-			   .enter()
-			   .append("rect")
-			   .attr("stroke", "black")
-			   .attr("stroke-width", 1)
-			   .attr("x", function(d) {
-			   		return d[0];})
-			   .attr("y", function(d) {
-			   		return d[1];})
-			   .attr("width", function(d) {
-			   		return d[2];})
-			   .attr("height", function(d) {
-			   		return d[3];})
-			   .attr("fill", function(d) {
-			   		if (d[4]== "gray")
-			   			return "gray";
-			   		else
-			   			return "#bdbdbd";})
+        new ScrollMagic.Scene({triggerElement: "#text11"})
+            .setClassToggle("#thirdvisualdiv", "deactive")
+            .addTo(controller);
 
-			svg.append("text")
-    			.attr("x", 350)
-    			.attr("y", 100)
-    			.attr("text-anchor", "middle")
-    			.text("ID='text1'")
-    			.attr("class", "text3opacity")
+        new ScrollMagic.Scene({triggerElement: "#text0"})
+          	.setClassToggle("#text00", "deactive")
+          	.addTo(controller);
 
-    		svg.append("text")
-    			.attr("x", 350)
-    			.attr("y", 200)
-    			.attr("text-anchor", "middle")
-    			.text("ID='text2'")
-    			.attr("class", "text3opacity")
+      	new ScrollMagic.Scene({triggerElement: "#text1"})
+          	.setClassToggle("#text0", "deactive")
+          	.addTo(controller);
 
-    		svg.append("text")
-    			.attr("x", 350)
-    			.attr("y", 300)
-    			.attr("text-anchor", "middle")
-    			.text("ID='text3'")
-    			.attr("class", "text3opacity")
+  		  // new ScrollMagic.Scene({triggerElement: "#text3"})
+        //   	.setClassToggle(".text3opacity", ".active")
+        //   	.addTo(controller);
+        //
+        // new ScrollMagic.Scene({triggerElement: "#text5"})
+        //     .setClassToggle(".img", ".active")
+        //     .addTo(controller);
 
-    		svg.append("text")
-    			.attr("x", 350)
-    			.attr("y", 400)
-    			.attr("text-anchor", "middle")
-    			.text("ID='text4'")
-    			.attr("class", "text3opacity")
-
-    		svg.append("text")
-    			.attr("x", 350)
-    			.attr("y", 500)
-    			.attr("text-anchor", "middle")
-    			.text("ID='text5'")
-    			.attr("class", "text3opacity")
-
-    		svg.append("text")
-    			.attr("x", 350)
-    			.attr("y", 600)
-    			.attr("text-anchor", "middle")
-    			.text("ID='text6'")
-    			.attr("class", "text3opacity")
-
-    		svg.append("text")
-    			.attr("x", 350)
-    			.attr("y", 700)
-    			.attr("text-anchor", "middle")
-    			.text("ID='text7'")
-    			.attr("class", "text3opacity")
-
-    		svg.append("text")
-    			.attr("x", 700)
-    			.attr("y", 200)
-    			.attr("text-anchor", "middle")
-    			.text("ID='firstvisualdiv'")
-    			.attr("class", "text3opacity")
-
-    		svg.append("text")
-    			.attr("x", 700)
-    			.attr("y", 580)
-    			.attr("text-anchor", "middle")
-    			.text("ID='secondvisualdiv'")
-    			.attr("class", "text3opacity")
-
-
-    		svg.append("text")
-    			.attr("x", 700)
-    			.attr("y", 250)
-    			.attr("text-anchor", "middle")
-    			.text("position: sticky")
-    			.attr("class", "text3opacity")
-
-    		svg.append("text")
-    			.attr("x", 700)
-    			.attr("y", 630)
-    			.attr("text-anchor", "middle")
-    			.text("position: sticky")
-    			.attr("class", "text3opacity")
-
-    var controller = new ScrollMagic.Controller();
-
-    	new ScrollMagic.Scene({triggerElement: "#text1"})
-        	.setClassToggle(".text1opacity", "active")
-        	.addTo(controller);
-
-    	new ScrollMagic.Scene({triggerElement: "#text2"})
-        	.setClassToggle(".text2opacity", "active")
-        	.addTo(controller);
-
-		new ScrollMagic.Scene({triggerElement: "#text3"})
-        	.setClassToggle(".text3opacity", "active")
-        	.addTo(controller);
-
-</script>
+  </script>
 </body>
 </html>
