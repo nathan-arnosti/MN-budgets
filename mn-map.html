@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Minnesota Counties</title>
+	<script src="https://d3js.org/d3.v5.min.js" charset="utf-8"></script>
+
+
+</head>
+<body>
+
+
+
+
+	<script>
+		var minnesotacountiesurl= "https://raw.githubusercontent.com/lrsmi/Test-Map_report/main/mn_counties.geojson"
+
+									 var width = 1000
+									 var height = 800
+
+									 var svg = d3.select("body")
+															 .append("svg")
+															 .attr("width", width)
+															 .attr("height", height)
+
+
+									 var g = svg.append("g")
+
+
+									 var albersProjection = d3.geoAlbers()
+																						.scale(7000)
+																						.rotate([94.6859, 0])
+																						.center([0, 46.729])
+																						.translate([width/2, height/2])
+
+									 var geoPath = d3.geoPath()
+																	 .projection(albersProjection)
+
+		 							d3.json(minnesotacountiesurl).then(function(minnesota){
+											g.selectAll("path")
+											.data(minnesota.features)
+											.enter()
+											.append("path")
+											.attr("fill", "#acc")
+											.attr("stroke", "#333")
+											.attr("d", geoPath)
+									})
+
+
+
+	</script>
+</body>
+</html>
