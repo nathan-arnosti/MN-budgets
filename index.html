@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8" />
-    <title>How do local budgets reflect priorities in Minnesota?</title>
+    <title>MN County Police Budgets?</title>
 
     <!-- D3, directly loading minified version  -->
    	<script src="https://d3js.org/d3.v4.min.js"></script>
@@ -14,30 +14,41 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.min.js"></script>
 
     <style>
+    /* Scalable Vector Graphics (SVG) styling */
+		svg {
+			width:auto;
+			height:auto;
+			padding-left:5px;
+			padding-right:5px}
+    /* Heading styling */
+		h1 {
+			font-size:43px;
+			font-weight:300;
+			line-height:1.25;
+      text-align: left}
+    h3 {
+			font-size:30px;
+      font-weight:300}
+    h4 {
+      font-size:19px;
+      font-weight:300}
+    h6 {
+      font-size:15px;
+      font-weight:300;
+      text-align: justify}
     /* Paragraph styling */
     p {
 			font-family: 'Open Sans', sans-serif;
 			color:#353536;
 			font-weight:300}
-    /* Scalable Vector Graphics (SVG) styling */
-		svg {
-			width:auto;
-			height:auto;
-			padding-left:5%;
-			padding-right:50px}
-    /* Heading styling */
-		h1 {
-			font-size:60px;
-			font-weight:200;
-			line-height:1.3}
     /* Visual styling */
 		#firstvisualdiv {
       position: -webkit-sticky;
       position: sticky;
       top: -1px;
       border-color: black;
-      background-color: lightgray;
-      padding: 20px;
+      background-color: white;
+      padding: 10px;
       transition: opacity 0.8s;
      -webkit-transition: opacity 0.8s}
     #secondvisualdiv {
@@ -46,7 +57,7 @@
       top: -1px;
       border-color: black;
       background-color: pink;
-      padding: 20px;
+      padding: 10px;
       transition: opacity 0.8s;
      -webkit-transition: opacity 0.8s}
     #thirdvisualdiv {
@@ -55,11 +66,11 @@
       top: -1px;
       border-color: black;
       background-color: lightblue;
-      padding: 20px;
+      padding: 10px;
       transition: opacity 0.8s;
      -webkit-transition: opacity 0.8s}
 
-      .img{
+    .img{
        max-width: 100%;
        max-height: 100%;
        position: relative;
@@ -68,7 +79,7 @@
        -webkit-transition: opacity 1.2s;
       }
 
-      .html{
+    .html{
        max-width: 100%;
        max-height: 100%;
        position: relative;
@@ -85,51 +96,76 @@
        -webkit-transition: opacity 0.8s;
       }
 
-		.active {
-    	opacity:1;
-    	}
+		.active {opacity:1}
+    .deactive {opacity:0}
 
-    .deactive {
-      opacity:0;
-      }
-
-        </style>
+    </style>
 </head>
 
-
 <body>
+
+  <!-- <header role="banner">
+      <nav class="navbar navbar-default" role="navigation">
+          <a class="navbar-brand" href="#">Brand Name</a>
+          <form class="navbar-form" role="search">...</form>
+      </nav>
+      //how to do breaks is <br><br>
+  </header> -->
+
   <main role="main" class="container" >
 
-       <div class="row">
-         	<div class="col-6">
-           		<br><br>
-           		<h1 id="text00">How do local budgets reflect public priorities in Minnesota?</h1>
-              <h3 id="text0">Visualizing local government spending on criminal justice in the state where George Floyd was murdered</h3>
-              <hr>
-              <h5 id="text0">Authors: Nathan Arnosti, Laier-Rayshon Smith, & Madeline Wrable</h3>
-              <hr>
-          </div>
+   <div class="row">
+     	<div class="col-12">
+       		<br><br>
+       		<h1 id="text000">How county budgets reflect public priorities in MN:</h1>
+          <h3 id="text00">Visualizing spending on criminal justice in the state where George Floyd was murdered</h3>
+          <hr>
+          <h4 id="text0">Authors: Nathan Arnosti, Laier-Rayshon Smith, & Madeline Wrable</h4>
+          <hr>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <br>
+        <p id="text1">George Floyd's murder at the hands of the Minneapolis Police Department on May 25, 2020 ignited the largest mass protests in U.S. history - and a national public conversation about policing, public safety, and racial justice.</p>
+        <p id="text2">Protests against police brutality and an unjust criminal justice system call attention to the many ways that public funds, and public institutions, inflict harm on people in systemic, racialized patterns. This raises a profound question: how should public dollars in a just society be spent?</p>
+        <br>
+     </div>
+    </div>
+
+    <div class="row">
+       <div class="col">
+           <div id="firstvisualdiv">
+             <h5> Protesters and Police</h5>
+             <iframe width=1090px height=700px src="Minneapolis_protests.jpg"></iframe>
+           </div>
        </div>
+    </div>
 
-       <div class="row">
-       	 <div class="col-4">
-           	<br><br>
-            <p id="text1">“Not everything that is faced can be changed, but nothing can be changed until it is faced.” - James Baldwin </p>
-            <br><br>
-           	<p id="text2">“If you grew up in a well-off, predominantly white suburb, how often did you interact with cops? Communities with lots of good jobs, strong schools, economies, and social safety nets are already, in some ways, living in a world without police.” - MPD150, Enough is Enough</p>
-           	<br><br>
-           	<p id="text3">“Don’t tell me what you value. Show me your budget and I will tell you what you value.” - Joe Biden </p>
-           	<br><br>
-           	<p id="text4">“We should redirect the billions that now go to the police departments towards providing health care, housing, education, and good jobs. If we did this, there would be less need for the police in the first place.” - Mariame Kaba </p>
-           	<br><br>
-          </div>
+    <div class="row">
+      <div class="col">
+         <br><br>
+         <p id="text1">“Not everything that is faced can be changed, but nothing can be changed until it is faced.” - James Baldwin </p>
+         <p id="text2">“If you grew up in a well-off, predominantly white suburb, how often did you interact with cops? Communities with lots of good jobs, strong schools, economies, and social safety nets are already, in some ways, living in a world without police.” - MPD150, Enough is Enough</p>
+      </div>
+      <div class="col">
+         <br><br>
+         <p id="text3">“Don’t tell me what you value. Show me your budget and I will tell you what you value.” - Joe Biden </p>
+         <p id="text4">“We should redirect the billions that now go to the police departments towards providing health care, housing, education, and good jobs. If we did this, there would be less need for the police in the first place.” - Mariame Kaba </p>
+       </div>
+    </div>
 
-          <div class="col-8">
+
+
+
+
+          <!-- <div class="col-8">
               <div id="firstvisualdiv">
                 <h5> Protesters and Police</h5>
                 <iframe width="700" height="500" src="Minneapolis_protests.jpg"></iframe>
               </div>
-          </div>
+          </div> -->
 
           <div class="col-4">
               <br><br>
@@ -171,36 +207,52 @@
       </div>
   </main>
 
+  <footer role="contentinfo" class="container" >
+    <div class="col-12">
+      <h6>Methodology and data sources: This is a recreation of a visualization made famous by Hans Roling and adapted by Mike Bostock.
+        Police spending data comes from the Minnesota State Auditor’s Minnesota County Finances Reports from 2000 to 2018.
+        This analysis visualizes current expenditures only, and does not include capital expenditures.
+        Due to missing county population data for the years 2001 - 2003 and 2005,
+        police spending percentages for those years have been estimated using linear interpolation.
+        Racial demographic data comes from the 2000 and 2010 Census and from the 2018 5-year ACS.
+        It has been interpolated across intervening years.</h6>
+
+      <h6>Acknowledgements: Many thanks to John Jernberg at the Minnesota State Auditor’s office for providing budget data;
+        to the teaching team of Sarah Williams, Yuan Lai, Trish Cafferky, and others for helping us at every step of this process;
+        and to the advocates, organizers, and scholars in Minnesota and across the country who have the courage and hope to question
+        existing investment patterns and envision a more just world.</h6>
+      <br><br>
+    </div>
+  </footer>
+
   <script type="text/javascript">
       var controller = new ScrollMagic.Controller();
+
+        new ScrollMagic.Scene({triggerElement: '#firstvisualdiv'}) //Title
+            .setClassToggle("#text000", "deactive")
+            .addTo(controller);
+        new ScrollMagic.Scene({triggerElement: "#firstvisualdiv"}) //Subtitle
+            .setClassToggle("#text00", "deactive")
+            .addTo(controller);
+        new ScrollMagic.Scene({triggerElement: "#firstvisualdiv"}) //Authors
+            .setClassToggle("#text0", "deactive")
+            .addTo(controller);
 
         new ScrollMagic.Scene({triggerElement: "#text4"})
             .setClassToggle("#firstvisualdiv", "deactive")
             .addTo(controller);
-
         new ScrollMagic.Scene({triggerElement: "#text5"})
             .setClassToggle("#secondvisualdiv", "active")
             .addTo(controller);
-
         new ScrollMagic.Scene({triggerElement: "#text7"})
             .setClassToggle("#secondvisualdiv", "deactive")
             .addTo(controller);
-
         new ScrollMagic.Scene({triggerElement: "#text7"})
             .setClassToggle("#thirdvisualdiv", "active")
             .addTo(controller);
-
         new ScrollMagic.Scene({triggerElement: "#text11"})
             .setClassToggle("#thirdvisualdiv", "deactive")
             .addTo(controller);
-
-        new ScrollMagic.Scene({triggerElement: "#text0"})
-          	.setClassToggle("#text00", "deactive")
-          	.addTo(controller);
-
-      	new ScrollMagic.Scene({triggerElement: "#text1"})
-          	.setClassToggle("#text0", "deactive")
-          	.addTo(controller);
 
   		  // new ScrollMagic.Scene({triggerElement: "#text3"})
         //   	.setClassToggle(".text3opacity", ".active")
