@@ -32,9 +32,10 @@ export default function define(runtime, observer) {
   main.variable(observer()).define(["md"], function(md){return(
 md`# Police budgets and racial demographics of Minnesota counties
 
-This is a NEW recreation of a [Gapminder visualization](http://gapminder.org/world/) made famous by [Hans Rosling](https://www.ted.com/talks/hans_rosling_the_best_stats_you_ve_ever_seen). It shows per-capita income (BIPOC) (*x*), life expectancy (POLICE) (*y*) and population (*area*) of 86 counties over 18 years (2000-2018), colored by region.
+This animated scatterplot shows percent BIPOC population (*x*), percent police spending (*y*), geographic region (*color*), and total population (*area*) of 86 counties over 18 years (2000-2018).
 
-(OLD DATA NOTES: Data prior to 1950 is sparse, so this chart uses [bisection](https://en.wikipedia.org/wiki/Binary_search_algorithm) and [linear interpolation](https://en.wikipedia.org/wiki/Linear_interpolation) to fill in missing data points.)`
+Note: Linear interpolation was used to estimate racial percentages and population for certain years due to missing data points. See methodology section for more information.
+Source: This is an adapted [Gapminder visualization](http://gapminder.org/world/) made famous by [Hans Rosling](https://www.ted.com/talks/hans_rosling_the_best_stats_you_ve_ever_seen).`
 )});
   main.variable(observer("viewof year")).define("viewof year", ["Scrubber","d3"], function(Scrubber,d3){return(
 Scrubber(d3.range(2000, 2018.1, 1), {format: Math.floor, loop: true})
