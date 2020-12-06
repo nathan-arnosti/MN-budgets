@@ -181,7 +181,7 @@
 
      <div class="col-8">
        <div id="secondvisualdiv">
-         <h5>Policing per-capita expenditures versus total per-capita expenditures in Minnesota cities</h5>
+         <!-- <h5>Policing per-capita expenditures versus total per-capita expenditures in Minnesota cities</h5> -->
          <iframe width="750" height ="400" src="index_scatterplot.html" frameborder="0"></iframe>
        </div>
      </div>
@@ -241,10 +241,13 @@
         new ScrollMagic.Scene({triggerElement: "#text3"})
             .setClassToggle("#firstvisualdiv", "deactive")
             .addTo(controller);
+        // new ScrollMagic.Scene({triggerElement: "#text1"})
+        //     .setClassToggle("#secondvisualdiv", "deactive")
+        //     .addTo(controller);
         new ScrollMagic.Scene({triggerElement: "#text5"})
             .setClassToggle("#secondvisualdiv", "active")
             .addTo(controller);
-        new ScrollMagic.Scene({triggerElement: "#text7"})
+        new ScrollMagic.Scene({triggerElement: "#text9"})
             .setClassToggle("#secondvisualdiv", "deactive")
             .addTo(controller);
         new ScrollMagic.Scene({triggerElement: "#text7"})
