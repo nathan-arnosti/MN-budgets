@@ -174,11 +174,14 @@
         <h3 id="textB4"><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></h3>
         <p id="text7">Why budgets?</p>
         <p id="text8">Budgets are moral documents, reflective of the values and preferences of those who set them. We are visualizing the budgets of all 87 counties in Minnesota to understand those values.
-           Pairing budget data with demographic data, we explore how percent spending on policing varies by racial composition per county.</p>
+           Pairing budget data with demographic data from the U.S. Census and American Community Survey, we explore how percent spending on policing services varies by racial composition per county.
+           Additionally, we explore population size and region as markers of urbanization, where regions have been divided into the “Core Counties” of Hennepin and Ramsey, where Minneapolis and Saint Paul are located; the five counties of the “Twin Cities suburbs”; and “Greater Minnesota”.</p>
         <br>
         <p id="text9">Why counties?</p>
         <p id="text10">While public attention has largely focused on policing in the city of Minneapolis in the wake of George Floyd’s murder, a statewide conversation about policing is necessary. Nearly 70% of police-involved deaths since 2001 have occurred outside of the Twin Cities of Minneapolis and Saint Paul, according to a recent study by the Star Tribune, Minnesota’s paper of record.</p>
-        <p id="text11">Research by the Urban Institute reveals that every level of government - including cities, counties, states, and the federal government - spends money on policing in various forms. This analysis focused on county governments, which fund police and sheriff services, courts, and county jails, as well as critical safety net services to residents including mental health, chemical dependency, child protection, and disability supports.</p>
+        <p id="text11">Research by the Urban Institute reveals that every level of government - including cities, counties, states, and the federal government - spends money on policing in various forms. This analysis focused on county governments, which play a particularly important role in funding criminal justice expenditures such as sheriffs offices, courts, county jails, and correctional facilities,
+          as well as critical safety net services to residents including mental health, chemical dependency, child protection, and disability supports.
+          Our project focuses on sheriff expenditures, which we also refer to as "policing".</p>
         <h3 id="textB5"><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></h3>
       </div>
     </div>
@@ -204,7 +207,7 @@
        <div class="col">
          <div id="secondvisualdiv">
            <!-- <h5>Policing per-capita expenditures versus total per-capita expenditures in Minnesota cities</h5> //iframe width="750" height ="400" ... frameborder="0"-->
-           <iframe width=1100px height=775px src="index_scatterplot.html" frameborder="0"></iframe>
+           <iframe width=1100px height=785px src="index_scatterplot.html" frameborder="0"></iframe>
          </div>
        </div>
     </div>
@@ -215,14 +218,13 @@
         <h5>Scatterplot Results</h5>
         <br>
         <p id="text12">Percent budget spent on policing:</p>
-        <p id="text13">In 2000, nearly every county spent less than 20% on policing, and many spent between 5-10%.
-          By 2018, all counties were below 25% spent on policing, and many spent between 7.5-15%.
-          In summary, a noticeable increase in police spending was visible over time.</p>
+        <p id="text13">In 2000, many counties spent between 5% and 10% of their budgets on policing services, and hardly any spent more than 20%.
+          By 2018, spending on policing increased somewhat across most counties. Nearly all counties spent at least 7.5% of their budgets on policing, and most spent between 10% and 25%.</p>
         <br>
-        <p id="text14">Percent BIPOC residents:</p>
-        <p id="text15">In 2000, most counties had less than 25% BIPOC residents, with a short range of 1-25%.
-          By 2018, most counties had less than 40% BIPOC residents, with a wide range of 4-40%.
-          In summary, the percent BIPOC residents increased over time as well as the range of values.</p>
+        <p id="text14">Percent Black, Indigenous, or People of Color (BIPOC) residents:</p>
+        <p id="text15">Increased police expenditures coincided with increasing racial diversity among county residents. In 2000, fewer than 10% of residents in all counties in the Twin Cities suburbs and most in Greater Minnesota were BIPOC.
+          Roughly 1 in 4 residents of the Core Counties were BIPOC. By 2018, BIPOC residents comprised at least 5% of the population in nearly every county, roughly 15% to 20% in the Twin Cities suburbs, and close to 1 in 3 in the Core Counties.</p>
+        <p id="text16">There appears to be no strong link between the racial demographics of the county, its population, and its spending on policing. The two most populous counties in the state, the Core Counties, spent a smaller percentage of their budget on policing than most counties in Greater Minnesota.Still, it’s worth noting that while racial demographics do not appear to predict county sheriff spending, counties in Minnesota are becoming both more diverse and spending somewhat more on policing services.</p>
         <br>
       </div>
     </div>
@@ -230,6 +232,8 @@
     <div class="row">
       <div class="col-12">
         <h5>Case Studies</h5>
+        <br>
+        <p id="text17">To understand what these broad trends look like at a more granular level, let’s take a look at four counties.</p>
         <br>
           <div id="thirdvisualdiv">
              <iframe width="900" height ="485" src="Case_Study_test.jpg" frameborder="0"></iframe>
@@ -242,19 +246,14 @@
       <br>
         <h5>Mapped Variables</h5>
         <br>
-        <p id="textD">(text introducing mapped variables)</p>
+        <p id="textD">To understand what spatial trends are in play, let’s take a look at a choropleth map from 2018. Below we compare police/sheriff spending (law enforcement and court costs) as opposed to correctional spending (prisons).</p>
         <br>
+        <div id="fourthvisualdiv">
+           <iframe width="900" height ="485" src="variables_mapped.jpg" frameborder="0"></iframe>
+        </div>
       </div>
     </div>
 
-    <div class="row">
-      <div class="col">
-          <div id="fourthvisualdiv">
-             <h5>Minnesota congressional districts</h5>
-             <iframe width="1100" height ="850" src="mn-map.html" frameborder="0"></iframe>
-          </div>
-      </div>
-    </div>
       <!-- The div below encloses all of the quotes in the body of the html -->
   </main>
 
