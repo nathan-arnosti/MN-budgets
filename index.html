@@ -2,12 +2,12 @@
 <html>
 <head>
     <meta charset="UTF-8" />
-    <title>MN County Police Budgets?</title>
+    <title>MN County Police Budgets</title>
 
     <!-- D3, directly loading minified version  -->
-   	<script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
     <!-- Google Fonts API -->
-   	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,500" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,500" rel="stylesheet">
     <!-- BootstrapCDN, is the cached version to add compiled CSS and JS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
     <!-- ScrollMagic, javascript library for scroll interactions -->
@@ -48,7 +48,7 @@
       top: -1px;
       border-color: black;
       background-color: white;
-      padding: 10px;
+      padding: 1px;
       transition: opacity 0.8s;
      -webkit-transition: opacity 0.8s}
     #secondvisualdiv {
@@ -56,8 +56,8 @@
       position: sticky;
       top: -1px;
       border-color: black;
-      background-color: pink;
-      padding: 10px;
+      background-color: white;
+      padding: 1px;
       transition: opacity 0.8s;
      -webkit-transition: opacity 0.8s}
     #thirdvisualdiv {
@@ -65,8 +65,17 @@
       position: sticky;
       top: -1px;
       border-color: black;
-      background-color: lightblue;
-      padding: 10px;
+      background-color: white;
+      padding: 1px;
+      transition: opacity 0.8s;
+     -webkit-transition: opacity 0.8s}
+    #fourthvisualdiv {
+      position: -webkit-sticky;
+      position: sticky;
+      top: -1px;
+      border-color: black;
+      background-color: white;
+      padding: 1px;
       transition: opacity 0.8s;
      -webkit-transition: opacity 0.8s}
 
@@ -152,13 +161,26 @@
          <p id="text2">“We should redirect the billions that now go to the police departments towards providing health care, housing, education, and good jobs. If we did this, there would be less need for the police in the first place.” - Mariame Kaba</p>
       </div>
     </div> -->
+
     <div class="row">
       <div class="col">
-         <p id="text3">“Don’t tell me what you value. Show me your budget and I will tell you what you value.” - Joe Biden </p>
-         <p id="text5">This project seeks to explore this question.</p>
-         <p id="text6">Budgets are moral documents, reflective of the values and preferences of those who set them. We are visualizing the budgets of all 87 counties in Minnesota to understand those values.</p>
-         <p id="text7">Pairing budget data with demographic data, we explore how percent spending on policing varies by racial composition per county.</p>
-       </div>
+        <br><br>
+        <h3 id="textB1"><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></h3>
+        <h3 id="text3">“For decades, local officials requested federal funding for job training, gun control and mental health programs. What did they get? Funding only for police and prosecutors.” - James Foreman, Jr., Locking Up Our Own</h3>
+        <h3 id="textB2"><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></h3>
+        <h3 id="text4">“We should redirect the billions that now go to the police departments towards providing health care, housing, education, and good jobs. If we did this, there would be less need for the police in the first place.” - Mariame Kaba</h3>
+        <h3 id="textB3"><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></h3>
+        <h3 id="text5">“Don’t tell me what you value. Show me your budget and I will tell you what you value.” - Joe Biden</h3>
+        <h3 id="textB4"><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></h3>
+        <p id="text7">Why budgets?</p>
+        <p id="text8">Budgets are moral documents, reflective of the values and preferences of those who set them. We are visualizing the budgets of all 87 counties in Minnesota to understand those values.
+           Pairing budget data with demographic data, we explore how percent spending on policing varies by racial composition per county.</p>
+        <br>
+        <p id="text9">Why counties?</p>
+        <p id="text10">While public attention has largely focused on policing in the city of Minneapolis in the wake of George Floyd’s murder, a statewide conversation about policing is necessary. Nearly 70% of police-involved deaths since 2001 have occurred outside of the Twin Cities of Minneapolis and Saint Paul, according to a recent study by the Star Tribune, Minnesota’s paper of record.</p>
+        <p id="text11">Research by the Urban Institute reveals that every level of government - including cities, counties, states, and the federal government - spends money on policing in various forms. This analysis focused on county governments, which fund police and sheriff services, courts, and county jails, as well as critical safety net services to residents including mental health, chemical dependency, child protection, and disability supports.</p>
+        <h3 id="textB5"><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></h3>
+      </div>
     </div>
 
     <!-- <div class="row">
@@ -176,40 +198,70 @@
         <p id="text7">Pairing budget data with demographic data from the U.S. Census and American Community Survey, we explore how spending varies by county population and by the racial composition of their residents. Does a more populous county with a higher share of Black and brown residents spend more on police and corrections spending than a smaller, less racially diverse county?</p>
         <br>
         <p id="text8">As James Baldwin reminds us, nothing can be changed until it is faced. Understanding existing patterns of investment in our inequitable society is a crucial first step towards changing them.</p>
-
      </div> -->
 
-     <div class="col-8">
-       <div id="secondvisualdiv">
-         <!-- <h5>Policing per-capita expenditures versus total per-capita expenditures in Minnesota cities</h5> -->
-         <iframe width="750" height ="400" src="index_scatterplot.html" frameborder="0"></iframe>
+    <div class="row">
+       <div class="col">
+         <div id="secondvisualdiv">
+           <!-- <h5>Policing per-capita expenditures versus total per-capita expenditures in Minnesota cities</h5> //iframe width="750" height ="400" ... frameborder="0"-->
+           <iframe width=1100px height=775px src="index_scatterplot.html" frameborder="0"></iframe>
+         </div>
        </div>
-     </div>
+    </div>
 
-         <div class="col-4">
-                <p id="text9"> Budgets are moral documents, reflective of the values and preferences of those who set them. We are visualizing the budgets of more than 750 cities and all 87 counties in Minnesota to understand how these values vary across the state</p>
-                <br><br>
-                <p id="text10">Inspired by the observations of police and prison abolitionists like Mariame Kaba, we compare local government spending on police and prisons with spending on parks, social services, economic development, housing, and health.</p>
-                <br><br>
-                <p id="text11">Pairing budget data with demographic data from the U.S. Census and American Community Survey, we hope to understand how spending varies by city population and by the racial composition of their residents. Does a more populous city with a higher share of Black and brown residents spend more on police and corrections spending than a small, more monolithically white suburb? </p>
-                <br><br>
-                <p id="text12">As James Baldwin reminds us, nothing can be changed until it is faced. Understanding existing patterns of investment our inequitable society is a crucial first step towards changing them.</p>
-                <br><br>
-          </div>
-
-          <div class="col-8">
-              <div id="thirdvisualdiv">
-                 <h5>Minnesota congressional districts</h5>
-                 <iframe width="500" height ="500" src="mn-map.html" frameborder="0"></iframe>
-              </div>
-          </div>
-      <!-- The div below encloses all of the quotes in the body of the html -->
+    <div class="row">
+     <div class="col">
+        <br><br>
+        <h5>Scatterplot Results</h5>
+        <br>
+        <p id="text12">Percent budget spent on policing:</p>
+        <p id="text13">In 2000, nearly every county spent less than 20% on policing, and many spent between 5-10%.
+          By 2018, all counties were below 25% spent on policing, and many spent between 7.5-15%.
+          In summary, a noticeable increase in police spending was visible over time.</p>
+        <br>
+        <p id="text14">Percent BIPOC residents:</p>
+        <p id="text15">In 2000, most counties had less than 25% BIPOC residents, with a short range of 1-25%.
+          By 2018, most counties had less than 40% BIPOC residents, with a wide range of 4-40%.
+          In summary, the percent BIPOC residents increased over time as well as the range of values.</p>
+        <br>
       </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12">
+        <h5>Case Studies</h5>
+        <br>
+          <div id="thirdvisualdiv">
+             <iframe width="900" height ="485" src="Case_Study_test.jpg" frameborder="0"></iframe>
+          </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+      <br>
+        <h5>Mapped Variables</h5>
+        <br>
+        <p id="textD">(text introducing mapped variables)</p>
+        <br>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+          <div id="fourthvisualdiv">
+             <h5>Minnesota congressional districts</h5>
+             <iframe width="1100" height ="850" src="mn-map.html" frameborder="0"></iframe>
+          </div>
+      </div>
+    </div>
+      <!-- The div below encloses all of the quotes in the body of the html -->
   </main>
 
   <footer role="contentinfo" class="container" >
     <div class="col-12">
-      <h6>Methodology and data sources: This is a recreation of a visualization made famous by Hans Roling and adapted by Mike Bostock.
+      <br><br>
+      <h6 id="footer1">Methodology and data sources: This is a recreation of a visualization made famous by Hans Roling and adapted by Mike Bostock.
         Police spending data comes from the Minnesota State Auditor’s Minnesota County Finances Reports from 2000 to 2018.
         This analysis visualizes current expenditures only, and does not include capital expenditures.
         Due to missing county population data for the years 2001 - 2003 and 2005,
@@ -217,7 +269,7 @@
         Racial demographic data comes from the 2000 and 2010 Census and from the 2018 5-year ACS.
         It has been interpolated across intervening years.</h6>
 
-      <h6>Acknowledgements: Many thanks to John Jernberg at the Minnesota State Auditor’s office for providing budget data;
+      <h6 id="footer2">Acknowledgements: Many thanks to John Jernberg at the Minnesota State Auditor’s office for providing budget data;
         to the teaching team of Sarah Williams, Yuan Lai, Trish Cafferky, and others for helping us at every step of this process;
         and to the advocates, organizers, and scholars in Minnesota and across the country who have the courage and hope to question
         existing investment patterns and envision a more just world.</h6>
@@ -238,23 +290,32 @@
             .setClassToggle("#text0", "deactive")
             .addTo(controller);
 
-        new ScrollMagic.Scene({triggerElement: "#text3"})
+        new ScrollMagic.Scene({triggerElement: "#textB1"})
             .setClassToggle("#firstvisualdiv", "deactive")
             .addTo(controller);
-        // new ScrollMagic.Scene({triggerElement: "#text1"})
-        //     .setClassToggle("#secondvisualdiv", "deactive")
+
+        // new ScrollMagic.Scene({triggerElement: "#text5"})
+        //     .setClassToggle("#text3", "deactive")
         //     .addTo(controller);
-        new ScrollMagic.Scene({triggerElement: "#text5"})
-            .setClassToggle("#secondvisualdiv", "active")
-            .addTo(controller);
-        new ScrollMagic.Scene({triggerElement: "#text9"})
+        // new ScrollMagic.Scene({triggerElement: "#textB1"})
+        //     .setClassToggle("#text5", "deactive")
+        // new ScrollMagic.Scene({triggerElement: "#text4"})
+        //     .setClassToggle("#text5", "active")
+        // new ScrollMagic.Scene({triggerElement: "#text6"})
+        //     .setClassToggle("#text4", "deactive")
+        //     .addTo(controller);
+        // new ScrollMagic.Scene({triggerElement: "#text9"})
+        //     .setClassToggle("#text5", "deactive")
+        //     .addTo(controller);
+
+        new ScrollMagic.Scene({triggerElement: "#text12"})
             .setClassToggle("#secondvisualdiv", "deactive")
             .addTo(controller);
-        new ScrollMagic.Scene({triggerElement: "#text7"})
-            .setClassToggle("#thirdvisualdiv", "active")
-            .addTo(controller);
-        new ScrollMagic.Scene({triggerElement: "#text11"})
-            .setClassToggle("#thirdvisualdiv", "deactive")
+        // new ScrollMagic.Scene({triggerElement: "#footer1"})
+        //     .setClassToggle("#thirdvisualdiv", "deactive")
+        //     .addTo(controller);
+        new ScrollMagic.Scene({triggerElement: "#footer1"})
+            .setClassToggle("#fourthvisualdiv", "deactive")
             .addTo(controller);
 
   		  // new ScrollMagic.Scene({triggerElement: "#text3"})

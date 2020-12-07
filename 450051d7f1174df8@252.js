@@ -97,7 +97,7 @@ function Scrubber(values, {
   autoplay = true, //whether it starts automatically, 'specifies whether the animation plays automatically. Set it to false to require the reader to click on the play button.`
   loop = true, //not sure, maybe related to autoplay, 'specifies whether the animation should automatically restart from the beginning after the end is reached. Set it to false to require the reader to click the play button to restart the animation after it ends.'
   loopDelay = null,//not sure yet, 'specifies how long to wait before looping in milliseconds.'
-  alternate = true //let's you go backwards from the end, 'specifies whether the animation should reverse direction when it reaches the end, rather than repeat from the start.'
+  alternate = false //let's you go backwards from the end, 'specifies whether the animation should reverse direction when it reaches the end, rather than repeat from the start.'
 } = {}) {
   values = Array.from(values);
   const form = html`<form style="font: 12px var(--sans-serif); font-variant-numeric: tabular-nums; display: flex; height: 33px; align-items: center;">
@@ -117,7 +117,7 @@ function Scrubber(values, {
     else interval = setInterval(tick, delay);
   }
   function stop() {
-    form.b.textContent = "Playyyy"; //Play button text
+    form.b.textContent = "Play"; //Play button text
     if (frame !== null) cancelAnimationFrame(frame), frame = null;
     if (timer !== null) clearTimeout(timer), timer = null;
     if (interval !== null) clearInterval(interval), interval = null;
