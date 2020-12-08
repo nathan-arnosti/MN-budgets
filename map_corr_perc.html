@@ -67,8 +67,8 @@
 
             //3. Create SVG Canvas
             //3.1 Width and height of the whole visualization
-            var width = 700
-            var height = 700
+            var width = 480
+            var height = 500
 
 
             //3.2 Create SVG canvas
@@ -94,7 +94,7 @@
             //4.Set Projection Parameters
             // YOUR CODE HERE.
             var albersProjection = d3.geoAlbers()
-              .scale(6500)
+              .scale(4000)
               .rotate([97, 0])
               .center([0,49])
               .translate([width/10, height/10])
