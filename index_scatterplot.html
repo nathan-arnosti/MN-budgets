@@ -9,6 +9,13 @@ import define from "./index.js";
 import {Runtime, Library, Inspector} from "./runtime.js";
 
 const runtime = new Runtime();
-const main = runtime.module(define, Inspector.into(document.body));
-
+//const main = runtime.module(define, Inspector.into(document.body));
+const main = runtime.module(define, name => {
+  if (name === "update" | name === "currentData" | name === "dataAt" |
+  name === "valueAt" | name === "data" | name === "bisectYear" |
+  name === "d3") return true;
+  if (name === "title" |name === "viewof year" | name === "year" |
+  name === "legend" | name === "chart")
+  {return Inspector.into(document.body)();
+  }});
 </script>

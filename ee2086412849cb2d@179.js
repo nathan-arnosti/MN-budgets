@@ -92,7 +92,7 @@ Scrubber(d3.range(2000, 2018.1, 1), {format: Math.floor, loop: true})
   const circle = svg.append("g")
       .attr("stroke", "black")
     .selectAll("circle")
-    .data(dataAt(2000), d => d.name) //used to be dataAt(2000)
+    .data(dataAt(2018), d => d.name) //used to be dataAt(2000) look at the Pause code
     .join("circle")
       .sort((a, b) => d3.descending(a.population, b.population))
       .attr("cx", d => x(d.income))

@@ -46,6 +46,7 @@
       position: -webkit-sticky;
       position: sticky;
       top: -1px;
+      z-index:-10;
       border-color: black;
       background-color: white;
       padding: 1px;
@@ -79,6 +80,20 @@
       transition: opacity 0.8s;
      -webkit-transition: opacity 0.8s}
 
+    .bg-text {
+       background-color: rgba(0,0,0, 0.75); /* Black w/opacity/see-through */
+       color: white;
+       font-weight: 300;
+       font-size: 30px;
+       border: 1px solid #f1f1f1;
+       top: 10%;
+       left: 50%;
+       transform: translate(20%, 50%);
+       z-index: 2;
+       width: 700px;
+       padding: 10px;
+       text-align: center;
+     }
     .img{
        max-width: 100%;
        max-height: 100%;
@@ -89,9 +104,10 @@
       }
 
     .html{
-       max-width: 100%;
-       max-height: 100%;
-       position: relative;
+       max-width: 50%;
+       max-height: 50%;
+       position: sticky;
+       background-color: pink;
        opacity: 0;
        transition: opacity 1.2s;
        -webkit-transition: opacity 1.2s;
@@ -146,94 +162,72 @@
     <div class="row">
        <div class="col">
            <div id="firstvisualdiv">
-             <h5> Protesters and Police</h5>
-             <iframe width=1090px height=700px src="Minneapolis_protests.jpg"></iframe>
+             <h6><b>Protesters face off against police officers in Minneapolis days after George Floyd was killed by a Minneapolis police officer. <i>Source: Minneapolis Star Tribune</i></b></h6>
+             <img src="Protesters Confronting Police.jpg"></img>
            </div>
-       </div>
+        <h3 id="text3" class="bg-text">“For decades, local officials requested federal funding for job training, gun control and mental health programs. What did they get? Funding only for police and prosecutors.” - James Foreman, Jr., Locking Up Our Own</h3>
+        <br><br><br><br><br><br><br><br>
+        <h3 id="text4" class="bg-text">“We should redirect the billions that now go to the police departments towards providing health care, housing, education, and good jobs. If we did this, there would be less need for the police in the first place.” - Mariame Kaba</h3>
+        <br><br><br><br><br><br><br><br><br><br><br><br>
+        <h3 id="text5" class="bg-text">“Don’t tell me what you value. Show me your budget and I will tell you what you value.” - Joe Biden</h3>
+        <br><br><br><br><br><br>
+      </div>
     </div>
-
-    <!-- <div class="row">
-      <br><br>
-      <div class="col">
-         <p id="text1">“For decades, local officials requested federal funding for job training, gun control and mental health programs. What did they get? Funding only for police and prosecutors.” - James Foreman, Jr., Locking Up Our Own</p>
-      </div>
-      <div class="col">
-         <p id="text2">“We should redirect the billions that now go to the police departments towards providing health care, housing, education, and good jobs. If we did this, there would be less need for the police in the first place.” - Mariame Kaba</p>
-      </div>
-    </div> -->
-
     <div class="row">
-      <div class="col">
-        <br><br>
-        <h3 id="textB1"><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></h3>
-        <h3 id="text3">“For decades, local officials requested federal funding for job training, gun control and mental health programs. What did they get? Funding only for police and prosecutors.” - James Foreman, Jr., Locking Up Our Own</h3>
-        <h3 id="textB2"><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></h3>
-        <h3 id="text4">“We should redirect the billions that now go to the police departments towards providing health care, housing, education, and good jobs. If we did this, there would be less need for the police in the first place.” - Mariame Kaba</h3>
-        <h3 id="textB3"><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></h3>
-        <h3 id="text5">“Don’t tell me what you value. Show me your budget and I will tell you what you value.” - Joe Biden</h3>
-        <h3 id="textB4"><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></h3>
-        <p id="text7">Why budgets?</p>
+       <div class="col">
+         <br><br>
+        <p id="text7"><b>Why study budgets?</b></p>
         <p id="text8">Budgets are moral documents, reflective of the values and preferences of those who set them. We are visualizing the budgets of all 87 counties in Minnesota to understand those values.
            Pairing budget data with demographic data from the U.S. Census and American Community Survey, we explore how percent spending on policing services varies by racial composition per county.
            Additionally, we explore population size and region as markers of urbanization, where regions have been divided into the “Core Counties” of Hennepin and Ramsey, where Minneapolis and Saint Paul are located; the five counties of the “Twin Cities suburbs”; and “Greater Minnesota”.</p>
+       </div>
+     </div>
+
+   <div class="row">
+      <div class="col">
         <br>
-        <p id="text9">Why counties?</p>
-        <p id="text10">While public attention has largely focused on policing in the city of Minneapolis in the wake of George Floyd’s murder, a statewide conversation about policing is necessary. Nearly 70% of police-involved deaths since 2001 have occurred outside of the Twin Cities of Minneapolis and Saint Paul, according to a recent study by the Star Tribune, Minnesota’s paper of record.</p>
-        <p id="text11">Research by the Urban Institute reveals that every level of government - including cities, counties, states, and the federal government - spends money on policing in various forms. This analysis focused on county governments, which play a particularly important role in funding criminal justice expenditures such as sheriffs offices, courts, county jails, and correctional facilities,
-          as well as critical safety net services to residents including mental health, chemical dependency, child protection, and disability supports.
-          Our project focuses on sheriff expenditures, which we also refer to as "policing".</p>
-        <h3 id="textB5"><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></h3>
+        <p id="text9"><b>Why study counties?</b></p>
+        <p id="text10">While public attention has largely focused on policing in the city of Minneapolis in the wake of George Floyd’s murder, a statewide conversation about policing is necessary. <a href = "https://www.startribune.com/fatal-police-encounters-since-2000/502088871/">Nearly 70% of police-involved deaths </a>since 2001 have occurred outside of the Twin Cities of Minneapolis and Saint Paul, according to a recent study by the Star Tribune, Minnesota’s paper of record.</p>
+        <p id="text11">Research by the <a href = "https://www.urban.org/policy-centers/cross-center-initiatives/state-and-local-finance-initiative/state-and-local-backgrounders/criminal-justice-police-corrections-courts-expenditures">Urban Institute</a> reveals that every level of government - including cities, counties, states, and the federal government - spends money on policing in various forms. This analysis focused on county governments, which play a particularly important role in funding criminal justice expenditures such as sheriffs offices, courts, county jails, and correctional facilities, as well as critical safety net services to residents including mental health, chemical dependency, child protection, and disability supports. Our project focuses on sheriff expenditures, which we also refer to as “policing.”</p>
+        <br>
+        <p id="text111"><b>Why use a scatterplot?</b></p>
+        <p id="text1111">In order to visualize our variables, police spending as compared to racial composition over time, we are using an animated scatterplot.
+          This scatterplot displays Minnesota counties (n = 87), where the percentage of police spending out of the total county expenditures is on the y-axis
+          and the percentage of Black, Indigenous, or People of Color (BIPOC) residents out of the total population is on the x-axis.
+          The scatterplot is animated through time from 2000-2018. Counties are sized by population and color-coded by geographic region:
+          the “Core Counties” of Hennepin and Ramsey, where Minneapolis and Saint Paul are located; the five counties of the “Twin Cities suburbs”; and “Greater Minnesota.”</p>
+        <br><br>
       </div>
     </div>
 
-    <!-- <div class="row">
-      <div class="col-4">
-        <p id="text5">“For decades, local officials requested federal funding for job training, gun control and mental health programs. What did they get? Funding only for police and prosecutors.” - James Foreman, Jr., Locking Up Our Own </p>
-        <br><br>
-        <p id="text6">George Floyd's murder at the hands of the Minneapolis Police Department on May 25, 2020 ignited the largest mass protests in U.S. history - and a national public conversation about policing, public safety, and racial justice.</p>
-        <br><br>
-        <p id="text7">Protests against police brutality and an unjust criminal justice system call attention to the many ways that public funds, and public institutions, inflict harm on people in systemic, racialized patterns. This raises a profound question: how should public dollars in a just society be spent? </p>
-        <br><br>
-        <p id="text5">This project seeks to explore this question.</p>
-        <br>
-        <p id="text6">Budgets are moral documents, reflective of the values and preferences of those who set them. We are visualizing the budgets of all 87 counties in Minnesota to understand those values.</p>
-
-        <p id="text7">Pairing budget data with demographic data from the U.S. Census and American Community Survey, we explore how spending varies by county population and by the racial composition of their residents. Does a more populous county with a higher share of Black and brown residents spend more on police and corrections spending than a smaller, less racially diverse county?</p>
-        <br>
-        <p id="text8">As James Baldwin reminds us, nothing can be changed until it is faced. Understanding existing patterns of investment in our inequitable society is a crucial first step towards changing them.</p>
-     </div> -->
-
     <div class="row">
-       <div class="col">
+      <div class="col-3">
+         <br>
+         <p id="text13">In 2000, many counties spent between 5% and 10% of their budgets on policing services, and hardly any spent more than 20%.
+         <b>By 2018, spending on policing increased somewhat across most counties.</b> Nearly all counties spent at least 7.5% of their budgets on policing, and most spent between 10% and 25%.</p>
+         <p id="text15"><b>Increased police expenditures coincided with increasing racial diversity among county residents.</b> In 2000, fewer than 10% of residents in all counties in the Twin Cities suburbs and most in Greater Minnesota were BIPOC.
+           Roughly 1 in 4 residents of the Core Counties were BIPOC. By 2018, BIPOC residents comprised at least 5% of the population in nearly every county, roughly 15% to 20% in the Twin Cities suburbs, and close to 1 in 3 in the Core Counties.</p>
+         <p id="text17">There appears to be no strong link between the racial demographics of the county, its population, and its spending on policing. The two most populous counties in the state, the Core Counties, spent a smaller percentage of their budget on policing than most counties in Greater Minnesota.
+            Still, it’s worth noting that <b>while racial demographics do not appear to predict county policing spending, counties in Minnesota are becoming both more diverse and spending somewhat more on policing services.</b></p>
+         <br>
+       </div>
+
+       <div class="col-7">
+         <br>
+         <h5>Policing budgets and racial demographics of Minnesota counties, 2000-2018</h5>
          <div id="secondvisualdiv">
            <!-- <h5>Policing per-capita expenditures versus total per-capita expenditures in Minnesota cities</h5> //iframe width="750" height ="400" ... frameborder="0"-->
-           <iframe width=1100px height=785px src="index_scatterplot.html" frameborder="0"></iframe>
+           <iframe width=1100px height=670px src="index_scatterplot.html" frameborder="0"></iframe>
          </div>
        </div>
     </div>
 
     <div class="row">
-     <div class="col">
-        <br><br>
-        <h5>Scatterplot Results</h5>
-        <br>
-        <p id="text12">Percent budget spent on policing:</p>
-        <p id="text13">In 2000, many counties spent between 5% and 10% of their budgets on policing services, and hardly any spent more than 20%.
-          By 2018, spending on policing increased somewhat across most counties. Nearly all counties spent at least 7.5% of their budgets on policing, and most spent between 10% and 25%.</p>
-        <br>
-        <p id="text14">Percent Black, Indigenous, or People of Color (BIPOC) residents:</p>
-        <p id="text15">Increased police expenditures coincided with increasing racial diversity among county residents. In 2000, fewer than 10% of residents in all counties in the Twin Cities suburbs and most in Greater Minnesota were BIPOC.
-          Roughly 1 in 4 residents of the Core Counties were BIPOC. By 2018, BIPOC residents comprised at least 5% of the population in nearly every county, roughly 15% to 20% in the Twin Cities suburbs, and close to 1 in 3 in the Core Counties.</p>
-        <p id="text16">There appears to be no strong link between the racial demographics of the county, its population, and its spending on policing. The two most populous counties in the state, the Core Counties, spent a smaller percentage of their budget on policing than most counties in Greater Minnesota.Still, it’s worth noting that while racial demographics do not appear to predict county sheriff spending, counties in Minnesota are becoming both more diverse and spending somewhat more on policing services.</p>
-        <br>
-      </div>
-    </div>
-
-    <div class="row">
       <div class="col-12">
-        <h5>Case Studies</h5>
         <br>
-        <p id="text17">To understand what these broad trends look like at a more granular level, let’s take a look at four counties.</p>
+        <h5 id="text18">Case Studies</h5>
+        <br>
+        <p id="text19">To understand what these broad trends look like at a more granular level, let’s take a look at four counties.</p>
         <br>
           <div id="thirdvisualdiv">
              <iframe width="900" height ="485" src="Case_Study_test.jpg" frameborder="0"></iframe>
@@ -243,23 +237,32 @@
 
     <div class="row">
       <div class="col">
-      <br>
+        <br><br>
         <h5>Mapped Variables</h5>
         <br>
         <p id="textD">To understand what spatial trends are in play, let’s take a look at a choropleth map from 2018. Below we compare police/sheriff spending (law enforcement and court costs) as opposed to correctional spending (prisons).</p>
         <br>
+
         <div id="fourthvisualdiv">
-           <iframe width="900" height ="485" src="variables_mapped.jpg" frameborder="0"></iframe>
+          <div class="container">
+            <div class="row">
+              <div class="col-sm">
+                <div class = ".html">
+                  <iframe width="500" height ="650" src="map_police_perc.html" frameborder="0"></iframe>
+                </div>
+              </div>
+              <div class="col-sm">
+                <iframe width="500" height ="650" src="map_corr_perc.html" frameborder="0"></iframe>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
 
       <!-- The div below encloses all of the quotes in the body of the html -->
   </main>
 
   <footer role="contentinfo" class="container" >
     <div class="col-12">
-      <br><br>
       <h6 id="footer1">Methodology and data sources: This is a recreation of a visualization made famous by Hans Roling and adapted by Mike Bostock.
         Police spending data comes from the Minnesota State Auditor’s Minnesota County Finances Reports from 2000 to 2018.
         This analysis visualizes current expenditures only, and does not include capital expenditures.
@@ -267,7 +270,6 @@
         police spending percentages for those years have been estimated using linear interpolation.
         Racial demographic data comes from the 2000 and 2010 Census and from the 2018 5-year ACS.
         It has been interpolated across intervening years.</h6>
-
       <h6 id="footer2">Acknowledgements: Many thanks to John Jernberg at the Minnesota State Auditor’s office for providing budget data;
         to the teaching team of Sarah Williams, Yuan Lai, Trish Cafferky, and others for helping us at every step of this process;
         and to the advocates, organizers, and scholars in Minnesota and across the country who have the courage and hope to question
@@ -289,30 +291,15 @@
             .setClassToggle("#text0", "deactive")
             .addTo(controller);
 
-        new ScrollMagic.Scene({triggerElement: "#textB1"})
+        new ScrollMagic.Scene({triggerElement: "#text7"})
             .setClassToggle("#firstvisualdiv", "deactive")
             .addTo(controller);
-
-        // new ScrollMagic.Scene({triggerElement: "#text5"})
-        //     .setClassToggle("#text3", "deactive")
-        //     .addTo(controller);
-        // new ScrollMagic.Scene({triggerElement: "#textB1"})
-        //     .setClassToggle("#text5", "deactive")
-        // new ScrollMagic.Scene({triggerElement: "#text4"})
-        //     .setClassToggle("#text5", "active")
-        // new ScrollMagic.Scene({triggerElement: "#text6"})
-        //     .setClassToggle("#text4", "deactive")
-        //     .addTo(controller);
-        // new ScrollMagic.Scene({triggerElement: "#text9"})
-        //     .setClassToggle("#text5", "deactive")
-        //     .addTo(controller);
-
-        new ScrollMagic.Scene({triggerElement: "#text12"})
+        new ScrollMagic.Scene({triggerElement: "#text18"})
             .setClassToggle("#secondvisualdiv", "deactive")
             .addTo(controller);
-        // new ScrollMagic.Scene({triggerElement: "#footer1"})
-        //     .setClassToggle("#thirdvisualdiv", "deactive")
-        //     .addTo(controller);
+        new ScrollMagic.Scene({triggerElement: "#fourthvisualdiv"})
+            .setClassToggle("#thirdvisualdiv", "deactive")
+            .addTo(controller);
         new ScrollMagic.Scene({triggerElement: "#footer1"})
             .setClassToggle("#fourthvisualdiv", "deactive")
             .addTo(controller);
