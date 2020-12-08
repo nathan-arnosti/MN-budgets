@@ -1,0 +1,152 @@
+<html lang='eng'>
+    <head>
+        <title>
+            Mapping with D3
+        </title>
+        <script src = "https://d3js.org/d3.v5.min.js" charset="utf-8"></script>
+        <!-- add a style here -->
+        <style>
+          body {
+            position: absolute;
+            font-family: "Proxima Nova", "Montserrat", sans-serif;
+          }
+
+          h1, h2, h3 {
+            position: absolute;
+            left: 10px;
+            font-size: 1.3em;
+            font-weight: 100;
+          }
+
+          h2 {
+            top:30px;
+            font-size: 1.5em;
+          }
+          h3 {
+            top:60px;
+            font-size: 1em;
+          }
+          /* .incident {
+            fill: steelblue;
+          } */
+
+          .hover{
+            fill: yellow;
+          }
+
+          #sliderContainer{
+            text-align:center;
+            position: relative;
+            top:600px;
+          }
+
+        </style>
+
+    </head>
+    <body>
+        <!-- page elemets and content go here. -->
+
+        <h1>Percent of county budget spent on policing, 2018</h1>
+        <h2></h2>
+        <h3></h3>
+        <br>
+        <br>
+        <br>
+        <!-- <div id="sliderContainer">
+          <input id="timeslide" type="range" min="0" max="11" value="0" step="1"/><br>
+          <span id="range">January</span>
+        </div> -->
+
+        <script>
+            //Our D3 code will go here.
+
+            //2. Load the data:
+            var MinStateurl = 'MN_Joined_2.json'
+            // var MinStateurl = 'https://pcafferky.github.io/MN_Joined_2.json'
+
+            //3. Create SVG Canvas
+            //3.1 Width and height of the whole visualization
+            var width = 700
+            var height = 700
+
+
+            //3.2 Create SVG canvas
+            // YOUR CODE HERE.
+            var svg = d3.select("body")
+                        .append("svg")
+                        .attr("width", width)
+                        .attr("height", height)
+
+
+
+            //3.3 Append empty placeholder g element to the svg
+            //g will contain geometry elements
+            // YOUR CODE HERE.
+            var StateG=svg.append("g")
+            var CensusTractsG=svg.append("g")
+            var WalkshedsG=svg.append("g")
+            var BoroughG=svg.append("g")
+            var SuwayLineG=svg.append("g")
+            var SuwayStationsG=svg.append("g")
+
+
+            //4.Set Projection Parameters
+            // YOUR CODE HERE.
+            var albersProjection = d3.geoAlbers()
+              .scale(6500)
+              .rotate([97, 0])
+              .center([0,49])
+              .translate([width/10, height/10])
+
+            //5.Create GeoPath function that uses built-in D3 functionality to turn
+            //lat/lon coordinates into screen coordinates;
+            // YOUR CODE HERE.
+
+            var geoPath = d3.geoPath()
+              .projection(albersProjection)
+
+            // //6. Load the data and bind data to svg canvas
+
+            d3.json(MinStateurl).then(function(MinnesotaCities){
+              StateG.selectAll("path")
+                .data(MinnesotaCities.features)
+                .enter()
+                .append("path")
+                .attr("fill", function(d) {
+                         if (d.properties.data_2018_police_perc > .2) {return "#091534"}
+                         else if (d.properties.data_2018_police_perc > .15) {return "#012998"}
+                         else if (d.properties.data_2018_police_perc > .10) {return "#0247FE"}
+                         else if (d.properties.data_2018_police_perc > .05) {return "#678FFE"}
+                         else { return "#DBE5FF" };
+                       })
+                .attr("stroke", "#bdbdbd")
+                .attr("d", geoPath)
+
+            //add mouseover effects here
+                .on("mouseover", function(d){
+                    d3.select("h2").text(d.properties.NAMELSAD)
+                    d3.select(this).attr("class", "incident hover")
+                    d3.select("h3").text(d.properties.data_2018_police_perc)
+                    d3.select(this).attr("class", "incident hover")
+            })
+                .on("mouseout", function(d){
+                    d3.select("h2").text("")
+                    d3.select(this).attr("class", "incident")
+                    d3.select("h3").text("")
+                    d3.select(this).attr("class", "incident")
+
+               })
+             })
+
+         </script>
+
+
+
+
+            <!-- // function to match date -->
+
+            <!-- //Set Innitial State -->
+
+
+    </body>
+</html>
