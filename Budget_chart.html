@@ -109,16 +109,16 @@ function update(selectedVar) {
       svg.append("text")
           .attr("text-anchor", "end")
           .attr("x", width/2 + 40)
-          .attr("y", height + margin.top + 75)
+          .attr("y", height + margin.top + 35)
           .attr("id", "h3")
-          .text("");
+          .text("County");
 
     // Add Y axis label
     svg.append("text")
         .attr("text-anchor", "end")
         .attr("transform", "rotate(-90)")
         .attr("y", -margin.left + 15)
-        .attr("x", -margin.top - height/10 - 40 )
+        .attr("x", -margin.top - height/10 - 20 )
         .attr("id", "h3")
         .text("Percentage point increase");
 
@@ -151,7 +151,7 @@ function update(selectedVar) {
       })
 
   // Handmade legend
-  svg.append("rect").attr('x', 340).attr('y', 350).attr('width', 20).attr('height', 10).style("fill", "#C0C0C0")
+  svg.append("rect").attr('x', 340).attr('y', 50).attr('width', 20).attr('height', 10).style("fill", "#C0C0C0")
   svg.append("rect").attr('x', 340).attr('y', 370).attr('width', 20).attr('height', 10).style("fill", "#6666ff")
   svg.append("rect").attr('x', 340).attr('y', 390).attr('width', 20).attr('height', 10).style("fill", "#ff6666")
   svg.append("text").attr("x", 365).attr("y", 356).text("Core counties").style("font-size", "12px").attr("alignment-baseline","middle")
