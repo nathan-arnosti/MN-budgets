@@ -1,0 +1,167 @@
+Changes in policing budgets & BIPOC residents by county, 2000 - 2018 <!DOCTYPE html>
+<meta charset="utf-8">
+
+<!-- Load d3.js -->
+<script src="https://d3js.org/d3.v4.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,500" rel="stylesheet">
+
+<style>
+
+  h1 {
+  font-family: 'Open Sans', sans-serif;
+  color:#353536;
+  font-size:20px;
+  font-weight:500;
+  padding-left: 140px;
+  /*padding-right: 20px;
+  /* margin-left:20px; */
+}
+
+h4 {
+  font-family: 'Open Sans', sans-serif;
+  font-size:15px;
+  font-weight:300;
+  line-height:1;
+  /* color: lightgray; */
+  /* margin-left:20px; */
+}
+
+</style>
+
+</head>
+<body>
+
+  <!-- <h1>Business Closures by Neighborhood</h1> -->
+
+<h4>
+<!-- Add 2 buttons -->
+<!-- <button onclick="update('Budget_increase')">Policing budget increase</button>  -->
+<!-- <button onclick="update('BIPOC_increase')">BIPOC share increase</button>  -->
+
+<form id="form" class="btn-group btn-group-toggle" data-toggle="buttons">
+  <label class="btn btn-secondary active">
+    <input type="radio" name="controlHeatmapType" value="MRR"  onclick="update('Budget_increase')" checked>Policing budget increase<br>
+  </label>
+  <label class="btn btn-secondary">
+    <input type="radio" name="controlHeatmapType" value="LYL" onclick="update('BIPOC_increase')">BIPOC share increase<br>
+  </label>
+</form>
+
+<!-- Create a div where the graph will take place -->
+<div id="my_dataviz"></div>
+</h4>
+</body>
+
+<script>
+
+// set the dimensions and margins of the graph
+var margin = {top: 30, right: 30, bottom: 130, left: 60},
+    width = 900 - margin.left - margin.right,
+    height = 430 - margin.top - margin.bottom;
+
+//    width = 560 - margin.left - margin.right,
+//    height = 430 - margin.top - margin.bottom;
+
+// append the svg object to the body of the page
+var svg = d3.select("#my_dataviz")
+  .append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform",
+          "translate(" + margin.left + "," + margin.top + ")");
+
+// Initialize the X axis
+var x = d3.scaleBand()
+  .range([ 0, width ])
+  .padding(.2);
+var xAxis = svg.append("g")
+  .attr("transform", "translate(0," + height + ")")
+
+// Initialize the Y axis
+var y = d3.scaleLinear()
+    .range([ height, 0])
+//  .range([ height, 0]);
+var yAxis = svg.append("g")
+  .attr("class", "myYaxis")
+
+
+// A function that create / update the plot for a given variable:
+function update(selectedVar) {
+
+  // Parse the Data
+  d3.csv("https://raw.githubusercontent.com/nathan-arnosti/MN-budgets/main/budget_chart_new.csv", function(data) {
+
+    // X axis
+    x.domain(data.map(function(d) { return d.County; }))
+    xAxis.transition().duration(1000).call(d3.axisBottom(x))
+    .selectAll("text")
+      .attr("transform", "translate(-10,0)rotate(-45)")
+      .style("text-anchor", "end")
+      .attr("font-size","6px");
+
+    // Add Y axis
+    //     y.domain([0, d3.max(data, function(d) { return +d[selectedVar] }) ]);
+    y.domain([0,20]);
+    yAxis.transition().duration(1000).call(d3.axisLeft(y));
+
+    // Add X axis label
+      svg.append("text")
+          .attr("text-anchor", "end")
+          .attr("x", width/2 + 40)
+          .attr("y", height + margin.top + 75)
+          .attr("id", "h3")
+          .text("");
+
+    // Add Y axis label
+    svg.append("text")
+        .attr("text-anchor", "end")
+        .attr("transform", "rotate(-90)")
+        .attr("y", -margin.left + 15)
+        .attr("x", -margin.top - height/10 - 40 )
+        .attr("id", "h3")
+        .text("Percentage point increase");
+
+    // variable u: map data to existing bars
+    var u = svg.selectAll("rect")
+      .data(data)
+
+    // update bars
+    u
+      .enter()
+      .append("rect")
+      .merge(u)
+      .transition()
+      .duration(1000)
+        .attr("x", function(d) { return x(d.County); })
+        .attr("y", function(d) { return y(d[selectedVar]); })
+        .attr("width", x.bandwidth())
+        .attr("height", function(d) { return height - y(d[selectedVar]); })
+        .attr("fill", function(d) {
+        if (d.County == "Hennepin County" || d.County == "Ramsey County") {return "#C0C0C0"}
+        else if (d.County == "Anoka County" || d.County == "Carver County" || d.County == "Dakota County" || d.County == "Scott County" || d.County == "Washington County") {return "#6666ff"}
+        else {
+        return "#ff6666";
+//#0000ff
+//#6666ff
+// #ff0100
+
+// #ffcccb
+       }
+      })
+
+  // Handmade legend
+  svg.append("rect").attr('x', 340).attr('y', 350).attr('width', 20).attr('height', 10).style("fill", "#C0C0C0")
+  svg.append("rect").attr('x', 340).attr('y', 370).attr('width', 20).attr('height', 10).style("fill", "#6666ff")
+  svg.append("rect").attr('x', 340).attr('y', 390).attr('width', 20).attr('height', 10).style("fill", "#ff6666")
+  svg.append("text").attr("x", 365).attr("y", 356).text("Core counties").style("font-size", "12px").attr("alignment-baseline","middle")
+  svg.append("text").attr("x", 365).attr("y", 376).text("Twin Cities suburbs").style("font-size", "12px").attr("alignment-baseline","middle")
+  svg.append("text").attr("x", 365).attr("y", 396).text("Greater Minnesota").style("font-size", "12px").attr("alignment-baseline","middle")
+
+    })
+
+  }
+// Initialize plot
+update('Budget_increase')
+
+</script>
