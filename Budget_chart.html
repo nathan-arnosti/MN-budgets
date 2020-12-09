@@ -90,7 +90,7 @@ var yAxis = svg.append("g")
 function update(selectedVar) {
 
   // Parse the Data
-  d3.csv("https://raw.githubusercontent.com/nathan-arnosti/MN-budgets/main/budget_chart_new.csv", function(data) {
+  d3.csv("https://raw.githubusercontent.com/nathan-arnosti/MN-budgets/main/budget_chart_new2.csv", function(data) {
 
     // X axis
     x.domain(data.map(function(d) { return d.County; }))
