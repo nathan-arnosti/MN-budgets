@@ -160,7 +160,7 @@ d3.scaleLinear([0, 40], [height - margin.bottom, margin.top])
 d3.scaleSqrt([0, 1e6], [0, width / 24]) //width /24
 )});
   main.variable(observer("color")).define("color", ["d3","data"], function(d3,data){return(
-d3.scaleOrdinal(data.map(d => d.region), [`red`, `blue`, 'silver']) //d3.schemeCategory10).unknown("black") //schemeCategory10
+d3.scaleOrdinal(data.map(d => d.region), [`#197284`, `#7ED5E7`, '#f2af46 ']) //d3.schemeCategory10).unknown("black") //schemeCategory10
 )});
   main.variable(observer("xAxis")).define("xAxis", ["height","margin","d3","x","width"], function(height,margin,d3,x,width){return(
 g => g
