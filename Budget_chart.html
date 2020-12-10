@@ -40,11 +40,12 @@ h4 {
 
 <form id="form" class="btn-group btn-group-toggle" data-toggle="buttons">
   <label class="btn btn-secondary active">
-    <input type="radio" name="controlHeatmapType" value="MRR"  onclick="update('Budget_increase')" checked>Policing budget increase<br>
+    <input type="radio" name="controlHeatmapType" value="MRR"  onclick="update('Budget_increase')" checked>Percentage change in county budget going to policing, 2000 - 2018<br>
   </label>
   <label class="btn btn-secondary">
-    <input type="radio" name="controlHeatmapType" value="LYL" onclick="update('BIPOC_increase')">BIPOC share increase<br>
+    <input type="radio" name="controlHeatmapType" value="LYL" onclick="update('BIPOC_increase')">Percentage change in Black, Indigenous, & People of Color county residents, 2000 - 2018<br>
   </label>
+  <br>
 </form>
 
 <!-- Create a div where the graph will take place -->
@@ -138,10 +139,11 @@ function update(selectedVar) {
         .attr("width", x.bandwidth())
         .attr("height", function(d) { return height - y(d[selectedVar]); })
         .attr("fill", function(d) {
-        if (d.County == "Hennepin County" || d.County == "Ramsey County") {return "#C0C0C0"}
-        else if (d.County == "Anoka County" || d.County == "Carver County" || d.County == "Dakota County" || d.County == "Scott County" || d.County == "Washington County") {return "#6666ff"}
+        if (d.County == "Hennepin County" || d.County == "Ramsey County") {return "#f2af46"}
+        else if (d.County == "Anoka County" || d.County == "Carver County" || d.County == "Dakota County" || d.County == "Scott County" || d.County == "Washington County") {return "#7ED5E7"}
         else {
-        return "#ff6666";
+        return "#197284";
+        //[`#197284`, `#7ED5E7`, '#f2af46 '] colors
 //#0000ff
 //#6666ff
 // #ff0100
@@ -151,12 +153,12 @@ function update(selectedVar) {
       })
 
   // Handmade legend
-  svg.append("rect").attr('x', 340).attr('y', 50).attr('width', 20).attr('height', 10).style("fill", "#C0C0C0")
-  svg.append("rect").attr('x', 340).attr('y', 70).attr('width', 20).attr('height', 10).style("fill", "#6666ff")
-  svg.append("rect").attr('x', 340).attr('y', 90).attr('width', 20).attr('height', 10).style("fill", "#ff6666")
-  svg.append("text").attr("x", 365).attr("y", 56).text("Core counties").style("font-size", "12px").attr("alignment-baseline","middle")
-  svg.append("text").attr("x", 365).attr("y", 76).text("Twin Cities suburbs").style("font-size", "12px").attr("alignment-baseline","middle")
-  svg.append("text").attr("x", 365).attr("y", 96).text("Greater Minnesota").style("font-size", "12px").attr("alignment-baseline","middle")
+  svg.append("rect").attr('x', 300).attr('y', 30).attr('width', 20).attr('height', 10).style("fill", "#f2af46")
+  svg.append("rect").attr('x', 300).attr('y', 50).attr('width', 20).attr('height', 10).style("fill", "#7ED5E7")
+  svg.append("rect").attr('x', 300).attr('y', 70).attr('width', 20).attr('height', 10).style("fill", "#197284")
+  svg.append("text").attr("x", 325).attr("y", 36).text("Core counties").style("font-size", "12px").attr("alignment-baseline","middle")
+  svg.append("text").attr("x", 325).attr("y", 56).text("Twin Cities suburbs").style("font-size", "12px").attr("alignment-baseline","middle")
+  svg.append("text").attr("x", 325).attr("y", 76).text("Greater Minnesota").style("font-size", "12px").attr("alignment-baseline","middle")
 
     })
 

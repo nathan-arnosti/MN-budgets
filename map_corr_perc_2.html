@@ -46,7 +46,7 @@
     <body>
         <!-- page elemets and content go here. -->
 
-        <h1>Percent of county budget spent on corrections, 2018</h1>
+        <h1>Percent spent on corrections, 2018</h1>
         <h2></h2>
         <h3></h3>
         <br>
@@ -67,8 +67,8 @@
 
             //3. Create SVG Canvas
             //3.1 Width and height of the whole visualization
-            var width = 700
-            var height = 700
+            var width = 480 //480
+            var height = 450 //450
 
 
             //3.2 Create SVG canvas
@@ -94,7 +94,7 @@
             //4.Set Projection Parameters
             // YOUR CODE HERE.
             var albersProjection = d3.geoAlbers()
-              .scale(6500)
+              .scale(4500)
               .rotate([97, 0])
               .center([0,49])
               .translate([width/10, height/10])
@@ -111,9 +111,10 @@
                 .data(markers)
                 .enter()
                 .append("circle")
-                .attr("cx", 367)
-                .attr("cy", 515)
+                .attr("cx", 337)
+                .attr("cy", 515) //318 closer
                 .attr("r", 4)
+                .attr("z", 5)
                 .style("fill", "000000")
                 .attr("stroke", "#584F4E")
                 .attr("stroke-width", 2)
@@ -125,7 +126,7 @@
                 .enter()
                 .append("circle")
                 .attr("cx", 382)
-                .attr("cy", 518)
+                .attr("cy", 518) //318 closer
                 .attr("r", 4)
                 .style("fill", "000000")
                 .attr("stroke", "#584F4E")
